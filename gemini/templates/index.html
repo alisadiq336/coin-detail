@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/style.css">
+    <title>Crypto Explanation</title>
+    <style>
+        /* Loading Screen Styles */
+        .loading-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            color: white;
+            font-size: 1.5em;
+            display: none; /* Hidden by default */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Search for a Cryptocurrency</h1>
+        <form id="searchForm" action="/generate" method="post">
+            <input type="text" name="topic" id="topicInput" placeholder="Enter a topic (e.g., Bitcoin)" required>
+            <button type="submit">Generate Explanation</button>
+        </form>
+    </div>
+
+    <!-- Loading Overlay -->
+    <div id="loadingOverlay" class="loading-overlay">Loading...</div>
+
+    <script>
+        document.getElementById("searchForm").addEventListener("submit", function (event) {
+            // Show the loading screen
+            document.getElementById("loadingOverlay").style.display = "flex";
+        });
+    </script>
+</body>
+</html>

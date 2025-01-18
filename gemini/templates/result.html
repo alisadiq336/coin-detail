@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/style.css">
+    <title>{{ topic }}</title>
+    <style>
+        body {
+            background-image: url("{{ image_url }}");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            background: rgba(0, 0, 0, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        h1 {
+            text-align: center;
+            color: #00ffcc;
+        }
+
+        h2 {
+            color: #ffcc00;
+        }
+
+        p {
+            margin: 10px 0;
+        }
+
+        a {
+            display: inline-block;
+            margin-top: 20px;
+            color: #00ffcc;
+            text-decoration: none;
+            font-size: 1.1em;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Details for: {{ topic }}</h1>
+        {% for heading, content in explanation.items() %}
+        <h2>{{ heading }}</h2>
+        <p>{{ content }}</p>
+        {% endfor %}
+        <a href="/">Back to Search</a>
+    </div>
+</body>
+</html>
